@@ -1,15 +1,7 @@
-// const Joi = require("joi");
-
 const contactsService = require("../models/contacts");
 
 const { HttpError } = require("../helpers");
 const { ctrlWrapper } = require("../decorators");
-
-// const contactAddSchema = Joi.object({
-//   name: Joi.string().min(3).max(30).required(),
-//   email: Joi.string().email().required(),
-//   phone: Joi.string().min(7).required(),
-// });
 
 const listContacts = async (req, res) => {
   const result = await contactsService.listContacts();
@@ -37,7 +29,6 @@ const removeContact = async (req, res) => {
     throw HttpError(404, `Contact id: ${id}- not found`);
   }
   res.json("Delete success");
-  // res.status(204).send();
 };
 
 const updateContactById = async (req, res) => {
